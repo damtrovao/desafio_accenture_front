@@ -1,0 +1,16 @@
+# =======================
+# Node / Cypress
+# =======================
+node_modules/
+cypress/screenshots/
+cypress/videos/
+
+# Ambiente
+.env
+.env.*.local
+.env.local
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
