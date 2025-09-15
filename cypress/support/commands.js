@@ -25,3 +25,4 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import './commands/Form/form.commands'
+import './commands/dataFaker.commands'

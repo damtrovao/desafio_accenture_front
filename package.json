@@ -8,5 +8,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "cypress": "^15.2.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "dotenv": "^17.2.2",
+    "faker-js": "^1.0.0"
+  }
 }

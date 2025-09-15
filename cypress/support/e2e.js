@@ -15,3 +15,31 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+Cypress.on('uncaught:exception', (err) => {
+  const msg = err && (err.message || err.toString());
+
+  const knownNoise = [
+    'Script error',
+    'ResizeObserver loop limit',
+  ];
+
+  if (knownNoise.some(noise => msg?.includes(noise))) {
+    return false;
+  }
+
+  if (err.stack && /googlesyndication|google-analytics|googletagmanager|doubleclick|hotjar|clarity/i.test(err.stack)) {
+    return false;
+  }
+
+  return true;
+});
+
+
+before(() => {
+    cy.generateFixture();
+
+    cy.fixture('form.data.json').then(data => {
+        Cypress.env('forms', data.form);
+    })
+})
