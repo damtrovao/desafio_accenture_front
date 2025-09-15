@@ -12,6 +12,10 @@ npm install
 
 ## Executando os testes
 
+### Variáveis de Ambiente
+Crie uma cópia do arquivo ".env.example" no mesmo local deste, nomeando como ".env"
+Para este desafio, não é necessário substituir os dados das variáveis de ambiente.
+
 ### Modo interativo (abre a interface do Cypress)
 ```bash
 npx cypress open
@@ -29,7 +33,6 @@ cypress/
   ├─ e2e/        # Arquivos de testes
   ├─ fixtures/   # Massa de dados (JSON)
   ├─ support/    # Comandos customizados e hooks
-  └─ videos/     # Gravações dos testes (gerado automaticamente)
 cypress.config.js  # Configuração do Cypress
 ```
 
