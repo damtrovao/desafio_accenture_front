@@ -2,8 +2,6 @@
 
 import { WidgetsPage } from '../../pages/WidgetsPage'
 
-let registers;
-
 describe('Widgets', () => {
     beforeEach(() => {
         cy.visit('/')

@@ -10,7 +10,8 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "cypress": "^15.2.0"
+    "@4tw/cypress-drag-drop": "^2.3.0",
+    "cypress": "^14.5.4"
   },
   "dependencies": {
     "@faker-js/faker": "^9.9.0",

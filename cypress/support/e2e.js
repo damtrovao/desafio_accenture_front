@@ -15,7 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands';
-import 'cypress-wait-until';
+import '@4tw/cypress-drag-drop';
 
 Cypress.on('uncaught:exception', (err) => {
   const msg = err && (err.message || err.toString());
