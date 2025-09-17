@@ -1,50 +1,51 @@
 export const WidgetsPage = {
   elements: {
-    btnWindow: () => cy.contains('.card-body', 'Alerts, Frame & Windows'),
-    btnBrowserWindows: () => cy.contains('.element-list .menu-list li', 'Browser Windows'),
-    btnNewWindow: () => cy.get('#windowButton'),
-    textNewWindow: () => cy.get('#sampleHeading'),
+    btnWidgets: () => cy.contains('.card-body', 'Widgets'),
+    btnProgressBar: () => cy.contains('.element-list .menu-list li', 'Progress Bar'),
+    btnStartStop: () => cy.get('#startStopButton'),
+    btnReset: () => cy.get('#resetButton'),
+    progressBar: () => cy.get('#progressBar'),
   },
 
   navegar() {
-    this.elements.btnWindow().click()
-    this.elements.btnBrowserWindows().click()
+    this.elements.btnWidgets().click()
+    this.elements.btnProgressBar().click()
   },
 
-  clicarNewWindowValidarAbertura() {
-    cy.window().then((win) => {
-      cy.stub(win, 'open').as('windowOpen')
-    })
-
-    this.elements.btnNewWindow().click()
-
-    cy.get('@windowOpen').should('be.called')
+  clicarStartStop() {
+    this.elements.btnStartStop().click()
   },
 
-  clicarNewWindowValidarConteúdo() {
-    cy.window().then((win) => {
-      cy.stub(win, 'open').as("newWindow");
+  pararAntesde25() {
+    cy.wait(1000)
+    this.elements.btnStartStop().click()
+
+    this.obterValorBarra().should(((val) => {
+      expect(val).to.be.at.most(25);
+    }))
+  },
+
+  resetProgressBar() {
+    this.elements.btnReset()
+      .should('be.visible')
+    
+    this.obterValorBarra().should((val) => {
+      expect(val).to.be.equal(100);
+    }).then(() => {
+      cy.wait(500);
     })
 
-    this.elements.btnNewWindow().click();
+    this.elements.btnReset().click()
+  },
 
-    cy.get('@newWindow').should('have.been.called');
-    cy.get('@newWindow').then((stub) => {
-      const firstCall = stub.getCall(0);
-      const urlArg = firstCall && firstCall.args && firstCall.args[0];
+  obterValorBarra() {
+    return this.elements.progressBar().then($root => {
+      const $bar = $root.is('[aria-valuenow]')
+        ? $root
+        : $root.find('[aria-valuenow], .progress-bar').first();
 
-      const targetUrl = (urlArg && urlArg !=='about:blank') ? urlArg : 'https://demoqa.com/sample';
-
-      if (targetUrl) {
-        cy.visit(targetUrl);
-      }
+      const raw = ($bar.attr('aria-valuenow') ?? $bar.text()).replace(/[^\d]/g, '');
+      return parseInt(raw, 10);
     });
-
-    this.elements.textNewWindow().should('have.text', 'This is a sample page')
-  },
-
-  fecharNewWindow() {
-    cy.go('back')
-    cy.url().should('include', 'browser-windows')
   },
 }
