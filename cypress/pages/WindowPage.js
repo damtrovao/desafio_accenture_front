@@ -47,8 +47,4 @@ export const WindowPage = {
     cy.go('back')
     cy.url().should('include', 'browser-windows')
   },
-
-  fecharPopup() {
-    this.elements.closeBtn().click({force:true})
-  }
 }

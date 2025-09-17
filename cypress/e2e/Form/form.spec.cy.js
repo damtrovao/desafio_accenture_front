@@ -8,9 +8,11 @@ describe('Form', () => {
     before(() => {
         forms = Cypress.env('forms');
     })
+
     beforeEach(() => {
         cy.visit('/')
     })
+    
     it('Teste 01 - Validar preencher e enviar Form', () => {
         FormPage.navegar()
         FormPage.preencherFormulario(forms[0])

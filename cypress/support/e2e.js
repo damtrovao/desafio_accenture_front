@@ -42,4 +42,8 @@ before(() => {
     cy.fixture('form.data.json').then(data => {
         Cypress.env('forms', data.form);
     })
+
+    cy.fixture('register.data.json').then(data => {
+        Cypress.env('registers', data.form);
+    })
 })

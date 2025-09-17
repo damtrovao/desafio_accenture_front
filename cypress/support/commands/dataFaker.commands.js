@@ -45,4 +45,17 @@ Cypress.Commands.add('generateFixture', () => {
             }
         })
     })
+
+    cy.writeFile('cypress/fixtures/register.data.json', {
+        'form':Cypress._.times(12, () => {
+            return {
+                'firstName':`${faker.person.firstName()}`,
+                'lastName':`${faker.person.lastName()}`,
+                'email':`${faker.internet.email()}`,
+                'age':`${faker.number.int({min:1, max:100})}`,
+                'salary':`${faker.number.int({min:1000, max:10000})}`,
+                'department':`${faker.commerce.department()}`,
+            }
+        })
+    })
 })
