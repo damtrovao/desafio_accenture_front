@@ -13,7 +13,7 @@ describe('Web Tables', () => {
         cy.visit('/')
     })
 
-    /*it('Teste 04 - Validar Criar Registro - Web Tables', () => {
+    it('Teste 04 - Validar Criar Registro - Web Tables', () => {
         WebTablesPage.navegar()
         WebTablesPage.clicarBtnAdd()
         WebTablesPage.preencherFormulario(registers[0])
@@ -36,7 +36,7 @@ describe('Web Tables', () => {
         WebTablesPage.validarRegistroExistente(registers[0])
         WebTablesPage.excluirRegistro(registers[0])
         WebTablesPage.validarRegistroInexistente(registers[0])
-    })*/
+    })
 
     it('Teste 07 - Validar Criar Vários Registros - Web Tables', () => {
         WebTablesPage.navegar()

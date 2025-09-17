@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-import { WebTablesPage } from '../../pages/WebTablesPage'
+import { WidgetsPage } from '../../pages/WidgetsPage'
 
 let registers;
 
@@ -14,40 +14,40 @@ describe('Web Tables', () => {
     })
 
     /*it('Teste 04 - Validar Criar Registro - Web Tables', () => {
-        WebTablesPage.navegar()
-        WebTablesPage.clicarBtnAdd()
-        WebTablesPage.preencherFormulario(registers[0])
-        WebTablesPage.validarRegistroExistente(registers[0])
+        WidgetsPage.navegar()
+        WidgetsPage.clicarBtnAdd()
+        WidgetsPage.preencherFormulario(registers[0])
+        WidgetsPage.validarRegistroExistente(registers[0])
     })
 
     it('Teste 05 - Validar Editar Registro - Web Tables', () => {
-        WebTablesPage.navegar()
-        WebTablesPage.clicarBtnAdd()
-        WebTablesPage.preencherFormulario(registers[1])
-        WebTablesPage.validarRegistroExistente(registers[1])
-        WebTablesPage.editarRegistro(registers[1], registers[2])
-        WebTablesPage.validarRegistroExistente(registers[2])
+        WidgetsPage.navegar()
+        WidgetsPage.clicarBtnAdd()
+        WidgetsPage.preencherFormulario(registers[1])
+        WidgetsPage.validarRegistroExistente(registers[1])
+        WidgetsPage.editarRegistro(registers[1], registers[2])
+        WidgetsPage.validarRegistroExistente(registers[2])
     })
 
     it('Teste 06 - Validar Deletar Registro - Web Tables', () => {
-        WebTablesPage.navegar()
-        WebTablesPage.clicarBtnAdd()
-        WebTablesPage.preencherFormulario(registers[0])
-        WebTablesPage.validarRegistroExistente(registers[0])
-        WebTablesPage.excluirRegistro(registers[0])
-        WebTablesPage.validarRegistroInexistente(registers[0])
+        WidgetsPage.navegar()
+        WidgetsPage.clicarBtnAdd()
+        WidgetsPage.preencherFormulario(registers[0])
+        WidgetsPage.validarRegistroExistente(registers[0])
+        WidgetsPage.excluirRegistro(registers[0])
+        WidgetsPage.validarRegistroInexistente(registers[0])
     })*/
 
     it('Teste 07 - Validar Criar Vários Registros - Web Tables', () => {
-        WebTablesPage.navegar()
+        WidgetsPage.navegar()
         registers.forEach(register => {
-            WebTablesPage.clicarBtnAdd()
-            WebTablesPage.preencherFormulario(register)
-            WebTablesPage.validarRegistroExistente(register)
+            WidgetsPage.clicarBtnAdd()
+            WidgetsPage.preencherFormulario(register)
+            WidgetsPage.validarRegistroExistente(register)
         })
         registers.forEach(register => {
-            WebTablesPage.excluirRegistro(register)
-            WebTablesPage.validarRegistroInexistente(register)
+            WidgetsPage.excluirRegistro(register)
+            WidgetsPage.validarRegistroInexistente(register)
         })
     })
 })
