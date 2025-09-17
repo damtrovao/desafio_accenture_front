@@ -17,7 +17,6 @@ describe('New Window', () => {
     it('Teste 02 - Validar Abrir nova Janela', () => {
         WindowPage.navegar()
         WindowPage.clicarNewWindowValidarAbertura()
-        WindowPage.fecharNewWindow()
     })
 
     it('Teste 03 - Validar conteúdo da nova Janela', () => {
